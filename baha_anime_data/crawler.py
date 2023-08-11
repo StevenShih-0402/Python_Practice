@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 from openpyxl import Workbook, load_workbook
 from openpyxl.utils import get_column_letter
+import time
 
 # 建立 User-Agent
 headers = {
@@ -62,10 +63,11 @@ page_num = 0
 for tag in tags:
     for category in categorys:
         if pages[page_num] == 0:
+            page_num += 1
             continue
         
         for page in range(1, pages[page_num] + 1):
-            r = requests.get('https://ani.gamer.com.tw/animeList.php?tags=' + tag + '&category=' + category + '&page=' + page, headers=headers)
+            r = requests.get('https://ani.gamer.com.tw/animeList.php?tags=' + tag + '&category=' + category + '&page=' + str(page), headers=headers)
             if r.status_code == 200:
                 print(f'請求成功：{r.status_code}')
 
@@ -89,6 +91,8 @@ for tag in tags:
             else:
                 print(f'請求失敗：{r.status_code}')
 
+        # 換下一個類型，中間間隔1.5秒，避免請求過快產生錯誤
         page_num += 1
+        time.sleep(1.5)
 
 wb.save("anigamer_data.xlsx")
