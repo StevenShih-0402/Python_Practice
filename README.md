@@ -52,3 +52,13 @@
 
 * **巨量資料**
 > 大三修習的選修課程-巨量資料探勘，基礎的Python練習
+
+* **Matplotlib**
+> Python的資料視覺化套件練習
+>
+> 參考影片：[彭彭的課程](https://youtu.be/MceOR4Kvv9I)
+
+* **baha_anime_data**
+> 透過Beautifulsoup套件，爬取巴哈姆特動畫瘋的觀影數據。
+>
+> 參考網站：[【Python爬蟲實例】巴哈姆特動畫瘋：新手入門基礎網路爬蟲教學](https://blog.jiatool.com/posts/gamer_ani_spider/)
